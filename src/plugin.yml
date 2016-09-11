@@ -1,0 +1,15 @@
+main: ml.optidevs.nation.Main
+name: OpticNation
+version: 1.0
+prefix: OpticNation
+description: OpticNation
+authors: [DiamondDeveloper, Intriqued]
+website: http://www.optidevs.ml/
+database: false
+
+commands:
+ OpticNation:
+    description: OpticNation
+    aliases: [on]
+ Tests:
+    description: Tests
