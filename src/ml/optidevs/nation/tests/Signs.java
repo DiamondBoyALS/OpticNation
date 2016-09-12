@@ -1,4 +1,4 @@
-package ml.optidevs.nation.signs;
+package ml.optidevs.nation.tests;
 
 import java.io.File;
 
@@ -18,13 +18,13 @@ import org.bukkit.event.player.PlayerInteractEvent;
 
 import ml.optidevs.nation.Main;
 
-public class Tests implements Listener {
+public class Signs implements Listener {
 	static Main m;
 	FileConfiguration con;
 	public YamlConfiguration TESTS;
 	public static File TESTS_FILE;
 
-	public Tests(Main main) {
+	public Signs(Main main) {
 		m = main;
 		con = m.getConfig();
 
@@ -45,7 +45,7 @@ public class Tests implements Listener {
 				p.sendMessage(
 						m.cl("&4Error &8&l»&4 This sign has errors! Please contact a staff member about this issue."));
 			} else if (ln[1].equals(m.cl("&6&l»&b Test &6&l«"))) {
-				ml.optidevs.nation.commands.Tests.startTest(m, p, ln[2]);
+				ml.optidevs.nation.tests.GUIListener.startTest(m, p, ln[2]);
 			}
 		}
 	}
@@ -104,7 +104,7 @@ public class Tests implements Listener {
 					return;
 				} else {
 					e.setCancelled(true);
-					ml.optidevs.nation.commands.Tests.startTest(m, p, ln[2]);
+					ml.optidevs.nation.tests.GUIListener.startTest(m, p, ln[2]);
 				}
 			}
 		}

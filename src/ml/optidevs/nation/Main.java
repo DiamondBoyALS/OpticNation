@@ -3,6 +3,8 @@ package ml.optidevs.nation;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Arrays;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -29,8 +31,9 @@ public class Main extends JavaPlugin {
 	@Override
 	public void onEnable() {
 		loadConfigs();
-		registerEvents(this, new ml.optidevs.nation.signs.Tests(this));
-		getCommand("Tests").setExecutor(new ml.optidevs.nation.commands.Tests(this));
+		registerEvents(this, new ml.optidevs.nation.tests.Signs(this), new ml.optidevs.nation.tests.GUIListener());
+		getCommand("Tests").setExecutor(new ml.optidevs.nation.tests.Commands(this));
+		
 		log(Level.INFO, "Plugin Enabled v" + desc.getVersion());
 
 	}
@@ -162,6 +165,27 @@ public class Main extends JavaPlugin {
 
 	public String cl(String str) {
 		return ChatColor.translateAlternateColorCodes('&', str);
+	}
+
+	public static String clS(String str) {
+		return ChatColor.translateAlternateColorCodes('&', str);
+	}
+
+	public static String[] clS(String[] str) {
+		for (int i = 0; i < str.length; i++) {
+			str[i] = ChatColor.translateAlternateColorCodes('&', str[i]);
+		}
+		return str;
+	}
+
+	public static List<String> clS(List<String> str) {
+		String[] stra = { "ERROR" };
+		for (int i = 0; i < str.size(); i++)
+			stra[i] = str.get(i);
+		for (int i = 0; i < stra.length; i++) {
+			stra[i] = ChatColor.translateAlternateColorCodes('&', stra[i]);
+		}
+		return Arrays.asList(stra);
 	}
 
 	public void loadConfigs() {
